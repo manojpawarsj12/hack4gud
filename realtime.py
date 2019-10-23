@@ -19,27 +19,16 @@ import pandas as pd
 video_capture = cv2.VideoCapture(0)
 
 # Load a sample picture and learn how to recognize it.
-bharat_image = fr.load_image_file("bharat_kaushik.jpg")
-bharat_face_encoding = fr.face_encodings(bharat_image)[0]
-kriti_image = fr.load_image_file("kritianand.jpg")
-kriti_face_encoding = fr.face_encodings(kriti_image)[0]
+input_image = fr.load_image_file("enter img file ")
+input_face_encoding = fr.face_encodings(bharat_image)[0]
 
-dikshita_image = fr.load_image_file("dikshita.jpg")
-dikshita_face_encoding = fr.face_encodings(dikshita_image)[0]
-bussa_image = fr.load_image_file("bussa.jpg")
-bussa_face_encoding = fr.face_encodings(bussa_image)[0]
 # Create arrays of known face encodings and their names
 known_face_encodings = [
-    bharat_face_encoding,
-    kriti_face_encoding,    
-    dikshita_face_encoding,
-    bussa_face_encoding
+    input_face_encoding
+    
 ]
 known_face_names = [
-    "bharat",
-    "kriti",    
-    "dikshita",
-    "manju"
+    "enter names to compare"
 ]
 
 # Initialize some variables
@@ -86,21 +75,9 @@ while True:
                 b = x.strftime("%m/%d/%Y, %H:%M:%S")
                 print(name1)
                # print(type(name1))
-                if name1=="bharat":
-                    df.loc['bharat','attendence']=1
-                    df.loc['bharat','datetime']=b
-                elif name1=="kriti":
-                    df.loc['kriti','attendence']=1
-                    df.loc['kriti','datetime']=b
-                elif name1=="dikshita":
-                    df.loc['dikshita','attendence']=1
-                    df.loc['dikshita','datetime']=b
-                elif name1=="manju":
-                    df.loc['manju','attendence']=1
-                    df.loc['manju','datetime']=b
-                
-                
-
+                if name1=="input name":
+                    df.loc['input name','attendence']=1
+                    df.loc['input face','datetime']=b
                 face_names.append(name)
 
     process_this_frame = not process_this_frame
